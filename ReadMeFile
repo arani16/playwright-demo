@@ -1,0 +1,59 @@
+Step 1: Download the IntelliJ Community version
+Step 2: Open IntelliJ
+Click New Project
+Choose Node.js (or Empty project)
+Set your project name: playwright-demo
+Click Create
+
+✅ Step 1 — Create Project Folder
+Open terminal:
+mkdir playwright-demo
+cd playwright-demo
+
+
+Step 2 — Initialize Node project
+In terminal
+
+npm init -y
+
+This creates:
+package.json
+
+{
+ "name": "playwright-demo",
+ "version": "1.0.0",
+ "description": "",
+ "main": "index.js",
+ "scripts": {
+   "test": "npx playwright test",
+   "test:headed": "npx playwright test --headed",
+   "test:ui": "npx playwright test --ui"
+ },
+ "author": "",
+ "license": "ISC",
+ "devDependencies": {
+   "allure-playwright": "^3.4.2"
+ }
+}
+
+✅ Step 3 — Install Playwright
+npm install -D @playwright/test
+
+Then install browsers:
+npx playwright install
+
+
+ Step 4 — Create Folder Structure (1)
+mkdir tests
+mkdir pages
+mkdir utils
+mkdir test-data
+
+Now project looks like:
+playwright-demo/
+ ├── tests/
+ ├── pages/ —---------- means Page Object Model
+ ├── utils/
+ ├── test-data/
+ ├── playwright.config.js
+ └── package.json
