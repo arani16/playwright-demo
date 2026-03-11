@@ -1,0 +1,23 @@
+{
+  "name": "playwright-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:headed": "npx playwright test --headed",
+    "test:ui": "npx playwright test --ui",
+
+    "test:cucumber": "cucumber-js --require features/step-definitions/*.js features/*.feature"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "allure-playwright": "^3.4.2"
+  },
+  "dependencies": {
+    "@cucumber/cucumber": "^12.3.0",
+    "@playwright/test": "^1.57.0",
+    "playwright": "^1.57.0"
+  }
+}
