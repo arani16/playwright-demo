@@ -57,3 +57,55 @@ playwright-demo/
  ├── test-data/
  ├── playwright.config.js
  └── package.json
+
+ Step 5 — Create playwright.config.js
+ Create file:
+ playwright.config.js
+
+ /** @type {import('@playwright/test').PlaywrightTestConfig} */
+ const config = {
+  testDir: 'tests',
+  timeout: 30000,
+
+
+  // 💡 FIX: Explicitly specify the 'html' reporter to generate the report files.
+  reporter: 'html',
+
+
+  use: {
+    headless: true,
+
+
+    // ✅ Capture screenshots for passed + failed tests
+    screenshot: 'on',
+
+
+    // ✅ Capture video only for failed tests
+    video: 'retain-on-failure',
+
+
+    // ✅ Keep trace on first retry
+    trace: 'on-first-retry',
+  },
+ };
+
+
+ module.exports = config;
+
+
+ Step 9 — In the Utilities / Helpers
+
+ In the Utils folder we have give the following :
+
+ Create /utils/helpers.js:
+
+ export async function waitForNetwork(page) {
+   await page.waitForLoadState('networkidle');
+ }
+
+ Use in test:
+ import { waitForNetwork } from '../utils/helpers';
+
+ await waitForNetwork(page);
+
+
